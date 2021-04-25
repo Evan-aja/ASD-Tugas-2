@@ -67,17 +67,17 @@ public class Tree {
             namaSelector = namaSelector.substring(1);
         }
         if (checkIsSame(id,root).size()>0){
-            System.out.println(id+" sudah ada");
+            System.out.print(id+" sudah ada");
             return;
         }
         Vector<Node> temp = selectorFinder(selector, root);
         if (temp.size() != 0) {
             for (Node x : temp) {
                 x.addChild(selector, tagName, id, text);
-                System.out.printf("tambah <%s id=\"%s\"> pada %s\n",tagName,id,namaSelector);
+                System.out.printf("tambah <%s id=\"%s\"> pada %s",tagName,id,namaSelector);
             }
         } else {
-            System.out.println("tidak ditemukan " + namaSelector);
+            System.out.print("tidak ditemukan " + namaSelector);
         }
     }
    /*
@@ -95,17 +95,17 @@ public class Tree {
                 if (temp.size()>1){
                     if (checkIsSame(id+index,root).size()==0) {
                         x.addChild(selector, tagName, id + index, text);
-                        System.out.printf("tambah <%s id=\"%s\"> pada %s\n",tagName,id+index,namaSelector);
+                        System.out.printf("tambah <%s id=\"%s\"> pada %s",tagName,id+index,namaSelector);
                     }
                     else System.out.println(id+index+" sudah ada");
                 }else {
                     x.addChild(selector, tagName, id, text);
-                    System.out.printf("tambah <%s id=\"%s\"> pada %s\n", tagName, id, namaSelector);
+                    System.out.printf("tambah <%s id=\"%s\"> pada %s", tagName, id, namaSelector);
                 }
                 index++;
             }
         } else {
-            System.out.println("tidak ditemukan " + selector);
+            System.out.print("tidak ditemukan " + selector);
         }
     }
     /*
@@ -203,18 +203,16 @@ public class Tree {
             StringBuilder stringBuilder = new StringBuilder();
             if (temp.size() != 0) {
                 for (Node s : temp) {
-//                    s.ubahNamaID(i+s.id);
                     recursivePrint(s, maxdepth, stringBuilder);
-//                    i++;
                 }
             }
         }
     }
     /*
-	search printer (print dengan awalan #)
+		search printer (print dengan awalan #)
      */
-    public void search(String selector) {
-    	print(selector,10000);
+    public void search(String id) {
+    	print(id,100000);
     }
     /*
         add Node text
@@ -256,6 +254,6 @@ public class Tree {
                     y.child.remove(x);
                 }
             }
-        }else System.out.println("tidak ditemukan " + selector);
+        }else System.out.print("tidak ditemukan " + selector);
     }
 }
