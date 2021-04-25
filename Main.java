@@ -28,14 +28,13 @@ public class Main {
 		for(int j=0;j<tugas.length;j++) {
 			try{
 				String []words=tugas[j].trim().split(";");
-				System.out.println();
 				if(words[0].equals("ADD")) {
 					if(words[1].startsWith("#")) {
 						pohonKurma.addNodeByID(words[1], words[2], words[3],null);
 					}else if(words[1].equals("TEXT")) {
 						pohonKurma.addTextNode(words[2],words[3]);
 						words[2] = words[2].substring(1);
-	                    System.out.print("tambah teks \""+words[3]+"\" pada "+words[2].toLowerCase());
+	                    System.out.println("tambah teks \""+words[3]+"\" pada "+words[2].toLowerCase());
 					}else {
 						pohonKurma.addNodeByTag(words[1], words[2], words[3],null);
 					}
