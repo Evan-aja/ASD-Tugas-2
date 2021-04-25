@@ -35,7 +35,7 @@ public class Main {
 					}else if(words[1].equals("TEXT")) {
 						pohonKurma.addTextNode(words[2],words[3]);
 						words[2] = words[2].substring(1);
-	                    System.out.println("tambah teks \""+words[3]+"\" pada "+words[2].toLowerCase());
+	                    System.out.print("tambah teks \""+words[3]+"\" pada "+words[2].toLowerCase());
 					}else {
 						pohonKurma.addNodeByTag(words[1], words[2], words[3],null);
 					}
