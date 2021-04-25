@@ -179,7 +179,7 @@ public class Tree {
                     System.out.printf("%s</%s>\n", garis, node.nameTag);
             } else {
                 System.out.printf("%s<%s id=\"%s\">", garis, node.nameTag, node.id);
-                System.out.printf("\n%s</%s>\n", garis, node.nameTag);
+                System.out.printf("/n%s</%s>\n", garis, node.nameTag);
             }
         } else {
             System.out.println(garis + node.text);
