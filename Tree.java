@@ -211,7 +211,7 @@ public class Tree {
         }
     }
     /*
-		search printer
+	search printer (print dengan awalan #)
      */
     public void search(String selector) {
     	print(selector,10000);
