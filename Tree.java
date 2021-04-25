@@ -43,7 +43,7 @@ public class Tree {
         cek duplikat id
      */
     private Vector<Node> checkIsSame(String id,Node node){
-        Vector<Node> temp = new Vector<>();
+    	Vector<Node> temp = new Vector<>();
         if (node.id!=null) {
             if (node.id.equals(id)) {
                 temp.add(node);
@@ -62,29 +62,29 @@ public class Tree {
         addTreeNode by ID
      */
     public void addNodeByID(String selector, String tagName, String id, String text) {
-        String namaSelector = selector;
+    	String namaSelector = selector;
         if (selector.startsWith("#")){
             namaSelector = namaSelector.substring(1);
         }
         if (checkIsSame(id,root).size()>0){
-            System.out.print(id+" sudah ada");
+            System.out.println(id+" sudah ada");
             return;
         }
         Vector<Node> temp = selectorFinder(selector, root);
         if (temp.size() != 0) {
             for (Node x : temp) {
                 x.addChild(selector, tagName, id, text);
-                System.out.printf("tambah <%s id=\"%s\"> pada %s",tagName,id,namaSelector);
+                System.out.printf("tambah <%s id=\"%s\"> pada %s\n",tagName,id,namaSelector);
             }
         } else {
-            System.out.print("tidak ditemukan " + namaSelector);
+            System.out.println("tidak ditemukan " + namaSelector);
         }
     }
    /*
         addTreeNode by nameTag
     */
     public void addNodeByTag(String selector, String tagName, String id, String text) {
-        String namaSelector = selector;
+    	String namaSelector = selector;
         if (selector.startsWith("#")){
             namaSelector = namaSelector.substring(1);
         }
@@ -95,24 +95,24 @@ public class Tree {
                 if (temp.size()>1){
                     if (checkIsSame(id+index,root).size()==0) {
                         x.addChild(selector, tagName, id + index, text);
-                        System.out.printf("tambah <%s id=\"%s\"> pada %s",tagName,id+index,namaSelector);
+                        System.out.printf("tambah <%s id=\"%s\"> pada %s\n",tagName,id+index,namaSelector);
                     }
                     else System.out.println(id+index+" sudah ada");
                 }else {
                     x.addChild(selector, tagName, id, text);
-                    System.out.printf("tambah <%s id=\"%s\"> pada %s", tagName, id, namaSelector);
+                    System.out.printf("tambah <%s id=\"%s\"> pada %s\n", tagName, id, namaSelector);
                 }
                 index++;
             }
         } else {
-            System.out.print("tidak ditemukan " + selector);
+            System.out.println("tidak ditemukan " + selector);
         }
     }
     /*
         cari address selector
      */
     private Vector<Node> selectorFinder(String selector, Node node) {
-        Vector<Node> temp = new Vector<>();
+    	Vector<Node> temp = new Vector<>();
         if ((selector.startsWith("#") ? "#" + node.id : node.selector).equals(selector)) {
             temp.add(node);
         }  else {
@@ -147,18 +147,18 @@ public class Tree {
         print rekursif
      */
     private void recursivePrint(Node node, int maxdepth, StringBuilder garis) {
-        boolean sekip = false;
+    	boolean sekip = false;
         if (maxdepth == -1) return;
         if (node.text == null) {
             if (node.child.size() != 0) {
                 if (node.child.size() > 1 && node.child.get(0).text != null) {
-                    System.out.printf("%s<%s id=\"%s\">\n", garis, node.nameTag, node.id);
+                    System.out.printf("%s<%s id=\"%s>\n", garis, node.nameTag, node.id);
                 } else if (node.child.get(0).text != null && node.child.get(0).child.size() == 0) {
-                    System.out.printf("%s<%s id=\"%s\">", garis, node.nameTag, node.id);
+                    System.out.printf("%s<%s id=\"%s>", garis, node.nameTag, node.id);
                     System.out.printf("%s", node.child.get(0).text);
                     sekip = true;
                 } else {
-                    System.out.printf("%s<%s id=\"%s\">\n", garis, node.nameTag, node.id);
+                    System.out.printf("%s<%s id=\"%s>\n", garis, node.nameTag, node.id);
                 }
                 garis.append("---");
                 for (int i = 0; i < node.child.size(); i++) {
@@ -178,8 +178,8 @@ public class Tree {
                 } else
                     System.out.printf("%s</%s>\n", garis, node.nameTag);
             } else {
-                System.out.printf("%s<%s id=\"%s\">", garis, node.nameTag, node.id);
-                System.out.printf("/n%s</%s>\n", garis, node.nameTag);
+                System.out.printf("%s<%s id=\"%s>", garis, node.nameTag, node.id);
+                System.out.printf("\n%s</%s>\n", garis, node.nameTag);
             }
         } else {
             System.out.println(garis + node.text);
@@ -189,7 +189,7 @@ public class Tree {
         print
      */
     public void print(String selector, int maxdepth) {
-        Vector<Node> temp;
+    	Vector<Node> temp;
         if (selector.startsWith("#")) {
             temp = selectorFinder(selector, root);
             StringBuilder stringBuilder = new StringBuilder();
