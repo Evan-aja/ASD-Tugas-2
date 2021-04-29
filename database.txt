@@ -1,0 +1,31 @@
+ADD;html;head;head
+ADD;#head;title;title1
+ADD;TEXT;#title1;Halaman Profil
+ADD;#html;body;body
+ADD;#body;h1;head1
+ADD;TEXT;#head1;Selamat datang
+ADD;TEXT;#body;Ini elemen teks
+ADD;#body;div;content
+ADD;#content;p;p1
+ADD;TEXT;#p1;Ini contoh paragraf pertama
+ADD;#content;p;p2
+ADD;TEXT;#p2;Ini contoh paragraf kedua
+ADD;#content;a;a1
+ADD;TEXT;#a1;Buka Google!
+ADD;#content;div;content1
+ADD;TEXT;#content1;Isi content1
+ADD;#content1;p;p4
+ADD;#body;p;p4
+ADD;#body;div;footer
+ADD;#footer;h1;footer-content
+ADD;TEXT;#footer-content;Ini adalah footer
+ADD;#footer;p;p3
+PRINT;html;100
+PRINT;html;1
+PRINT;html;0
+ADD;#header;div;div-header
+ADD;div;p;paragraf
+PRINT;div;1000
+DELETE;#title1
+PRINT;html;100
+SEARCH;#p1
