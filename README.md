@@ -1,6 +1,5 @@
 # ASD-Tugas-2
-here lies the spirit of undergraduate
 
-masih kosong, diisi ntar
+simple html generator on java
 
-siap siap kumpul nanti malem oke
+it's done
